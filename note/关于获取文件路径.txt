@@ -1,0 +1,35 @@
+	
+	getDataDirectory()//  获取 Android 数据目录。
+	getDownloadCacheDirectory()// 获取 Android 下载/缓存内容目录。	
+	getExternalStorageDirectory()// 获取外部存储目录即 SDCard
+	getExternalStoragePublicDirectory(String type)// 取一个高端的公用的外部存储器目录来摆放某些类型的文件
+	getExternalStorageState()// 获取外部存储设备的当前状态
+	getRootDirectory()// 获取 Android 的根目录
+	getCacheDir()方法用于获取/data/data/<application package>/cache目录
+	getFilesDir()方法用于获取/data/data/<application package>/files目录
+	getExternalFilesDir()方法可以获取到 SDCard/Android/data/你的应用的包名/files/ 目录，一般放一些长时间保存的数据
+	getExternalCacheDir()方法可以获取到 SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据
+	
+	
+	
+	
+	
+	File filesDir;
+	String state = Environment.getExternalStorageState();
+	//确定内存卡是否存在
+	if (Environment.MEDIA_MOUNTED.equals(state)) {
+		//SDCard
+		filesDir = getExternalFilesDir(null);
+	} else {
+		//内部存储
+		filesDir = getFilesDir();
+	}
+	
+	
+	
+	System.out.println(Environment.getExternalStorageDirectory().getPath());
+	System.out.println(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES));
+	System.out.println(getExternalCacheDir().toString());  
+	System.out.println(getExternalFilesDir(null).toString());  
+	http://images0.cnblogs.com/blog2015/780765/201507/221538566155063.png
+	
